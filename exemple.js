@@ -1,4 +1,4 @@
-let ville = "Reims";
+let city = "";
 let apiId = '227cf9ef448c3934d2b5f68324038f5d';
  
 const url = 'https://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=' + apiId +'&units=metric';
@@ -16,10 +16,15 @@ request.onload = function() {
         console.log(temp);
 
         document.querySelector('#temperature_label').textContent = temp;
-        document.querySelector('#ville').textContent = ville;
+        document.querySelector('#ville').textContent = city;
       }
     } else {
         alert('Un problème est survenu, revenez plus tard.');
     }
 }
+
+let changeCity = document.querySelector('#changer');
+changeCity.addEventListener('click', () => {
+    city = window.prompt('Entrez le nom de votre ville');
+});
 
