@@ -28,11 +28,15 @@ if("geolocation" in navigator) {
                 alert('Un problème est survenu, revenez plus tard.');
             }
         }
-    }, error);
+    }, error, options);
     
 } else {
     chosenCity = 'Paris';
     getTemperature(chosenCity);
+}
+
+var options = {
+    enableHighAccuracy: true
 }
 
 let changeCity = document.querySelector('#changer');
