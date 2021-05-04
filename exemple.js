@@ -1,5 +1,11 @@
-let chosenCity = "Paris";
-getTemperature(chosenCity);
+let chosenCity;
+
+if("geolocation" in navigator) {
+    
+} else {
+    chosenCity = 'Paris';
+    getTemperature(chosenCity);
+}
 
 let changeCity = document.querySelector('#changer');
 changeCity.addEventListener('click', () => {
@@ -9,6 +15,7 @@ changeCity.addEventListener('click', () => {
  
 
 function getTemperature(city) {
+    // get your own api key at https://openweathermap.org/api
     const url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=227cf9ef448c3934d2b5f68324038f5d&units=metric';
     
     let request = new XMLHttpRequest(); // créer un objet
